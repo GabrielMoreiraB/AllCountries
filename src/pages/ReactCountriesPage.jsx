@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Main from '../components/Main';
 import TextInput from '../components/TextInput';
 import { allCountries } from '../data/countries';
+import Countries from '../components/Countries';
 
 const ReactCountries = () => {
     const [coutryFilter, setCountryFilter] = useState('Brazil');
@@ -11,7 +12,7 @@ const ReactCountries = () => {
       setCountryFilter(e)
     }
 
-    const coutryFilterLowercase = coutryFilter.toLocaleLowerCase();
+    const coutryFilterLowercase = coutryFilter.trim().toLocaleLowerCase();
 
     const filteredCountries = 
     coutryFilterLowercase.length >= 3 ?
@@ -32,6 +33,7 @@ const ReactCountries = () => {
           autoFocus
           onInputChange={handleCountryFilterChange}
           />
+          <Countries>{filteredCountries}</Countries>
         </Main>
         
       </div>
